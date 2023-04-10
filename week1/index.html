@@ -1,24 +1,65 @@
 <!DOCTYPE html> <!-- doesn't need a closing tag -->
 <html>
     <head>
-        <title>Hello World with Leaflet</title>
+        <title>Maizah Ali</title>
         <meta charset="utf-8" />
         <link rel="shortcut icon" href="#">
         <!-- I'd add some style if here if I had any -->
         <link rel="stylesheet" href="styles/style.css"> 
-        html <script src="init.js"></script> 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&family=Rubik&display=swap" rel="stylesheet">
+
+        <!-- Leaflet's css-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+        <!-- Leaflet's JavaScript-->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     </head>
     <body>
-        <header>
-            Hello World! 
-        </header>
         <div class="main">
-            <!-- hint: majority of your lab assignment can go here -->
-        </div>
-        <div id="the_map">
+            <div id="contents">
+            <header>
+                <h1> Maizah Ali </h1>
+                <img class="fit-picture"
+                     src="profilepic.jpg">
+            </header>
+
+            <h2> About Me </h2>
+            <p> Hi! I'm a third-year undergraduate at UCLA double majoring in International Development Studies 
+                and Cognitive Science (one of my greatest sources of anxiety is having to explain what my two 
+                majors are about, so please don't ask). As you can tell, my interests are kind of all over the place, but 
+                I'm very passionate about thinking about development critically and in relation to colonialism, imperialism, 
+                and white supremacy. I also really love all types of art, and I enjoy creating illustrations in my (virtually nonexistent) 
+                free time (Procreate is the best app ever, change my mind 😩).
+                <br>
+                <br>
+                To give you an idea of what my course schedule looks like, here are some favorite UCLA classes:
+                <ol>
+                    <li> GLB ST 145: Rethinking Global Capitalism </li>
+                    <li> HIST 12C: History of Anti-Colonial Thought </li>
+                    <li> CLUSTER 27: Global Islam </li>
+                    <li> CS 180: Algorithms and Complexity (Pain&#8482; class, but interesting) </li>
+                </ol>
+                As a critical digital map maker, I hope to apply my creative and technical 
+                skills to projects that empower communities, while holding myself accountable to the power dynamics intrinsic to
+                conducting research and manipulating data. Above all, I hope to learn from the communities I'm serving 
+                and work with intention in order to avoid the pitfalls of extractivism that are so common in research. Excited to 
+                code empathically, compassionately, and ethically! </p>
+            <h3> Talk to me about... </h3>
+            <ul>
+                <li> Illustration & <a href="https://www.youtube.com/watch?v=QgyJ0Uj2Xg0&t=">animation</a>! In an alternate universe I'd work at Pixar... </li>
+                <li> All the "ism's": colonialism, imperialism, capitalism, etc. Yes, I'm a massive nerd! </li>
+                <li> Fictional characters you are currently brainrotting over (I am currently in shambles over the <a href="https://www.leighbardugo.com/book/six-of-crows/">Six of Crows</a> duology &#129402&#128420) </li>
+            </ul>
+            <h3> Favorite On-Campus Libraries </h3>
+            </div>
+            <div id="the_map"></div>
         </div>
         <div id="footer"> <!-- an id can only be used once on a page but classes can be reused -->
+           <br>
             Copyright(2023)
         </div>
+        <script src="js/init.js"></script> 
     </body>
 </html>
