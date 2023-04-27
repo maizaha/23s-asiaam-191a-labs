@@ -1,0 +1,61 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "place": "My home in Irvine",
+          "color": "red"
+        },
+        "geometry": {
+          "coordinates": [
+            -117.76207712841074,
+            33.699525877926064
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "place": "Omomo - an interesting boba shop",
+          "color": "green"
+        },
+        "geometry": {
+          "coordinates": [
+            -117.78908600000004,
+            33.671456108765625
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "place": "College - ookla!",
+          "color": "blue"
+        },
+        "geometry": {
+          "coordinates": [
+            -118.44548174999954,
+            34.07088499231433
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "place": "Forn Al Hara, a great Lebanese bakery",
+          "color": "purple"
+        },
+        "geometry": {
+          "coordinates": [
+            -117.95824754232748,
+            33.82608910750767
+          ],
+          "type": "Point"
+        }
+      }
+    ]
+  }
