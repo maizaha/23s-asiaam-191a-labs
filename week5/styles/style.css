@@ -1,0 +1,56 @@
+body{
+    display: grid;
+    grid-auto-rows: auto 1fr;
+    grid-template-areas: "header" "main_content" "footer";
+    background-color: rgb(245, 237, 225);
+}
+
+header{
+    grid-area: header;
+}
+
+#footer{
+    grid-area: footer;
+}
+
+.main{
+    grid-area: main_content;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-areas: "main_map content"; 
+    display: grid;
+}    
+
+
+#contents{
+    grid-area: content;
+}
+
+#the_map{
+    height:80vh;
+    grid-area: main_map;
+}
+
+button{
+    background-color: #efa890;
+    border-radius: 12px;
+    border-width: 0;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 8px;
+    padding: 10px 12px;
+    text-align: center;
+    vertical-align: baseline;
+}
+
+button:hover {
+    background-color: #935449; 
+    color: rgb(255, 255, 255);
+  }
+
+button:focus{
+    background-color:#935449;
+    color: #F7F6F3;
+}
