@@ -1,5 +1,5 @@
 // declare variables
-let mapOptions = {'center': [34.0709,-118.444],'zoom':5}
+let mapOptions = {'center': [33.8,-118.344],'zoom':8.5}
 
 // use the variables
 const map = L.map('the_map').setView(mapOptions.center, mapOptions.zoom);
@@ -8,43 +8,46 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-function addMarker(data){
-    // console.log(data)
-    // these are the names of our lat/long fields in the google sheets:
-    L.marker([data.lat,data.lng]).addTo(map).bindPopup(`<h2>${data['Where did you get vaccinated?']}</h2> <h3>${data['Have you been vaccinated?']}</h3>`)
-    createButtons(data.lat,data.lng,data['Where did you get vaccinated?'])
-    return
+// create a function to add markers
+function addMarker(lat,lng,title,message,rating){
+    console.log(message)
+    L.marker([lat,lng]).addTo(map).bindPopup(`<h2>${title}</h2> <p>${message}</p> <b> Rating: ${rating}</b>`)
+    createButtons(lat,lng,title)
+    return message
 }
 
-function createButtons(lat,lng,title){
-    const newButton = document.createElement("button"); // adds a new button
-    newButton.id = "button"+title; // gives the button a unique id
-    newButton.innerHTML = title; // gives the button a title
-    newButton.setAttribute("lat",lat); // sets the latitude 
-    newButton.setAttribute("lng",lng); // sets the longitude 
-    newButton.addEventListener('click', function(){
-        map.flyTo([lat,lng]); //this is the flyTo from Leaflet
-    })
-    const spaceForButtons = document.getElementById('placeForButtons')
-    spaceForButtons.appendChild(newButton);//this adds the button to our page.
-}
-
-const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSNq8_prhrSwK3CnY2pPptqMyGvc23Ckc5MCuGMMKljW-dDy6yq6j7XAT4m6GG69CISbD6kfBF0-ypS/pub?output=csv"
+const dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTA7moQmaZp6Iwxh5rKUmaD3cfq98sWI0SUtqDa-pawP1v4UwAEfYgG096QnNaRlVeRN7IoerErF58o/pub?output=csv"
 
 function loadData(url){
-    Papa.parse(url, {
+    Papa.parse(dataUrl, {
         header: true,
         download: true,
         complete: results => processData(results)
     })
 }
+// we will put this comment to remember to call our function later!
+loadData(dataUrl)
 
 function processData(results){
-    console.log(results)
+    //console.log(results) //for debugging: this can help us see if the results are what we want
     results.data.forEach(data => {
-        console.log(data)
-        addMarker(data)
+        console.log(data) // for debugging: are we seeing each data correctly?
+        // the console log can make sure we have the right field names selected!
+        addMarker(data.lat,data.lng,data['What is the name of the café/boba shop?'],data['What is your favorite drink item on the menu?'],data['How would you rate this café/boba shop out of 5 stars?'])
     })
 }
 
-loadData(dataUrl)
+function createButtons(lat,lng,title){
+    const newButton = document.createElement("button"); 
+    newButton.id = "button"+title; 
+    newButton.innerHTML = title; 
+    newButton.setAttribute("lat",lat); 
+    newButton.setAttribute("lng",lng); 
+    newButton.addEventListener('click', function(){
+        map.flyTo([lat,lng], 14); 
+    })
+    const spaceForButtons = document.getElementById('placeForButtons')
+    spaceForButtons.appendChild(newButton);
+}
+
+
